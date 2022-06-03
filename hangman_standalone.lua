@@ -3,16 +3,19 @@
 -- echo behave like io.write in this standalone script
 local echo = io.write
 
--- Some user-defined constants that don't often change are embedded in
--- the script to simplify the CLI arguments
-local PER_LINE = 12
-local FILENAME = "/Users/nicholasrusso/Desktop/MM/words_short.txt"
-
 -- CLI args specify the word being solved using underscores to represent
 -- unknown characters. Also specify the set of already-guessed wrong letters
 -- as a contiguous string
 local word_in_process = arg[1]
 local wrong_letters = arg[2]
+
+-- Some user-defined constants that don't often change are embedded in
+-- the script to simplify the CLI arguments
+local PER_LINE = 12
+local FILENAME = "/Users/nicholasrusso/Desktop/MM/words_short.txt"
+
+-- First, normalize wrong letters by removing any spaces
+wrong_letters = string.gsub(wrong_letters, " ", "")
 
 -- To determine already-guessed right letters, iterate over the word in
 -- process to extract one of each letter
@@ -20,7 +23,7 @@ local right_letters = ""
 for i = 1, #word_in_process do
   local char = string.sub(word_in_process, i, i)
 
-  -- If it's not an underscore and also not yet present in the set, add it
+  -- If it's not an underscore and not yet recorded as as right letter, add it
   if char ~= "_" and not string.find(right_letters, char) then
     right_letters = right_letters..char
   end
