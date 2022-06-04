@@ -39,23 +39,16 @@ local blank_replacer = "[^"..right_letters..wrong_letters.."]"
 -- the word length matches the candidate length
 local pattern = "^"..string.gsub(word_in_process, "_", blank_replacer).."$"
 
--- Quick and dirty way of multi-line comments using a multi-line string.
 -- Useful debugging information to ensure core logic variables are correct
-local comment_debug = [[
 echo("word_in_process: "..word_in_process.."\n")
 echo("wrong_letters: "..wrong_letters.."\n")
 echo("right_letters: "..right_letters.."\n")
 echo("blank_replacer: "..blank_replacer.."\n")
 echo("pattern: "..pattern.."\n")
-]]
 
 -- Open the word file for reading only, and if it fails, display the
 -- error message and quit
-local handle, err = io.open(FILENAME, "r")
-if not handle then
-  echo(error)
-  return
-end
+local handle = assert(io.open(FILENAME, "r"))
 
 -- Alternative shorthand syntax for reading in all words from the
 -- file as a giant string, then matching contiguous blocks of
