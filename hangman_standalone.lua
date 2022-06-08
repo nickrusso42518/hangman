@@ -12,7 +12,7 @@ local wrong_letters = arg[2]
 -- Some user-defined constants that don't often change are embedded in
 -- the script to simplify the CLI arguments
 local PER_LINE = 12
-local FILENAME = "/Users/nicholasrusso/Desktop/MM/words_short.txt"
+local FILENAME = "/path/to/file/words.txt"
 
 -- First, normalize wrong letters by removing any spaces
 wrong_letters = string.gsub(wrong_letters, " ", "")
