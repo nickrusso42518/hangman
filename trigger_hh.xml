@@ -4,9 +4,14 @@
 	<TriggerPackage>
 		<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="yes" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 			<name>hangman_helper</name>
-			<script>local word_in_process = multimatches[1][2]
-local wrong_letters = multimatches[2][2]
+			<script>-- Author: Nick Russo (njrusmc@gmail.com)
+-- Usage: Play a Materia Magica hangman game and guess at least 1 wrong letter
 
+-- Uncomment to see two-dimensional match table
+--display(multimatches)
+
+local word_in_process = multimatches[1][2]
+local wrong_letters = multimatches[2][2]
 cechoLink("&lt;green&gt;[SUGGEST]", function() hangman_helper(word_in_process, wrong_letters) end, "show words", true)</script>
 			<triggerType>0</triggerType>
 			<conditonLineDelta>2</conditonLineDelta>
@@ -20,7 +25,7 @@ cechoLink("&lt;green&gt;[SUGGEST]", function() hangman_helper(word_in_process, w
 			<colorTriggerBgColor>#000000</colorTriggerBgColor>
 			<regexCodeList>
 				<string>Progress thus far: ([a-z_]+)</string>
-				<string>Failed letters: ([a-z ]+)$</string>
+				<string>^Failed\s+letters:\s+([a-z ]+)$</string>
 			</regexCodeList>
 			<regexCodePropertyList>
 				<integer>1</integer>

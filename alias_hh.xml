@@ -4,7 +4,10 @@
 	<AliasPackage>
 		<Alias isActive="yes" isFolder="no">
 			<name>hangman_helper</name>
-			<script>hangman_helper(matches[2], matches[3])</script>
+			<script>-- Author: Nick Russo (njrusmc@gmail.com)
+-- Usage: hh (word in process, a-z or _) (wrong letters, abc -or- a b c)
+
+hangman_helper(matches[2], matches[3])</script>
 			<command></command>
 			<packageName></packageName>
 			<regex>^hh\s+([a-z_]+)\s+([a-z]+)$</regex>

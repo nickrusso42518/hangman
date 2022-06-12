@@ -5,7 +5,10 @@
 		<Script isActive="yes" isFolder="no">
 			<name>hangman_helper</name>
 			<packageName></packageName>
-			<script>function hangman_helper(word_in_process, wrong_letters)
+			<script>-- Author: Nick Russo (njrusmc@gmail.com)
+-- Usage: Call hangman_helper() from aliases or triggers to offer suggestions
+
+function hangman_helper(word_in_process, wrong_letters)
   -- Some user-defined constants that don't often change are embedded in
   -- the script to simplify the CLI arguments
   local PER_LINE = 12
